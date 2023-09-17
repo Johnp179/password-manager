@@ -47,7 +47,7 @@ export default function Account({
   return (
     <motion.form
       variants={childVariants}
-      className="flex flex-col p-5 border rounded-md text-lg"
+      className="flex flex-col p-5 border rounded-md text-fluid-m"
     >
       <label>
         Name

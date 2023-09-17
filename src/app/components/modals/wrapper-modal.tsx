@@ -55,7 +55,7 @@ export default function WrapperModal({
         dragConstraints={ref}
         variants={formVariants}
         dragMomentum={false}
-        className="text-3xl border bg-black border-zinc-300 rounded-lg"
+        className="text-fluid-l border bg-black border-zinc-300 rounded-lg"
       >
         <header className="flex justify-end bg-zinc-300 rounded-t-md">
           <button onClick={closeModal}>

@@ -38,7 +38,7 @@ export default function DeleteModal({
     <WrapperModal closeModal={closeModal} visible={visible}>
       <form onSubmit={handleSubmit}>
         <h1 className="p-4 uppercase">Are you sure you wish to remove?</h1>
-        <button className="block my-4 mx-auto uppercase border p-2 text-xl rounded-md">
+        <button className="block my-4 mx-auto uppercase border text-fluid-l p-2 rounded-md hover:bg-white hover:text-black">
           yes
         </button>
       </form>

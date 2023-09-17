@@ -90,7 +90,9 @@ export default function ModalForm({
         Please fill out both fields
       </div>
       <div className="flex justify-center items-center">
-        <button className="border p-2 uppercase rounded-md">Submit</button>
+        <button className="border p-2 uppercase rounded-md text-bold hover:bg-white hover:text-black">
+          Submit
+        </button>
       </div>
     </form>
   );

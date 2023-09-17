@@ -15,8 +15,13 @@ const config: Config = {
       },
       fontSize: {
         "fluid-s": "clamp(0.7rem, 1vw, 1rem)",
-        "fluid-m": "clamp(1rem, 1.5vw, 1.4rem)",
-        "fluid-l": "clamp(1.5rem, 3vw, 2.7rem)",
+        "fluid-m": "clamp(1rem, 1.5vw, 1.5rem)",
+        "fluid-l": "clamp(1.2rem, 3vw, 1.9rem)",
+        "fluid-xl": "clamp(2rem, 3vw, 3rem)",
+        "fluid-2xl": "clamp(2.5rem, 5vw, 3.5rem)",
+      },
+      screens: {
+        xs: "400px",
       },
     },
   },

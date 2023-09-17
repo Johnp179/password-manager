@@ -6,9 +6,7 @@ import { z } from "zod";
 import { RegisterError } from "@/types/user";
 import { postRequest } from "@/lib/api-requests";
 import type { NewUser } from "@/lib/validators";
-import DnaLoading from "@/app/components/dna-loading";
-import WrapperForm from "@/app/components/wrapper-form";
-import Footer from "../components/footer";
+import DnaLoading from "../components/dna-loading";
 
 const usernameErrorMsg = "Minimum of 5 characters";
 const passwordErrorMsgs = [
@@ -120,7 +118,7 @@ export default function Register() {
   }
 
   return (
-    <WrapperForm>
+    <>
       <form
         onSubmit={handleSubmit}
         className="p-7 bg-slate-700 space-y-5 rounded-md"
@@ -209,7 +207,6 @@ export default function Register() {
           )}
         </div>
       </form>
-      <Footer pathname="/register" />
-    </WrapperForm>
+    </>
   );
 }

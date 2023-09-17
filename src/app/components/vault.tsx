@@ -1,35 +1,21 @@
-"use client";
-
 import type { Account as TAccount } from "@prisma/client";
 import Account from "./account";
 import { useState } from "react";
 import PostModal from "./modals/post-modal";
 import DeleteModal from "./modals/delete-modal";
 import UpdateModal from "./modals/update-modal";
-import { BallTriangle } from "react-loader-spinner";
 import { AnimatePresence } from "framer-motion";
 import { motion } from "framer-motion";
 import type { Variants } from "framer-motion";
-function LoadingModal() {
-  return (
-    <div className="absolute w-full h-full flex justify-center items-center">
-      <BallTriangle
-        height={100}
-        width={100}
-        radius={5}
-        color="#fff"
-        ariaLabel="ball-triangle-loading"
-      />
-    </div>
-  );
-}
 
 export default function Vault({
   accounts,
   userId,
+  setLoading,
 }: {
   accounts: TAccount[];
   userId: string;
+  setLoading: (val: boolean) => void;
 }) {
   const [modalVisibility, setModalVisibility] = useState({
     post: false,
@@ -41,7 +27,6 @@ export default function Vault({
     name: "",
     password: "",
   });
-  const [loading, setLoading] = useState(false);
 
   function closeModal(key: "post" | "delete" | "update") {
     setModalVisibility((state) => ({
@@ -67,7 +52,6 @@ export default function Vault({
 
   return (
     <>
-      {loading && <LoadingModal />}
       <AnimatePresence>
         {modalVisibility.post && (
           <PostModal
@@ -92,13 +76,12 @@ export default function Vault({
         )}
       </AnimatePresence>
 
-      <section className="relative top-20 z-0">
+      <main className="relative top-20 lg:top-24 z-0">
         <motion.div
           initial="initial"
           animate="animate"
-          exit="exit"
           variants={parentVariants}
-          className="grid grid-cols-3 gap-4"
+          className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5  gap-4"
         >
           {accounts.map((account) => (
             <Account
@@ -111,11 +94,11 @@ export default function Vault({
         </motion.div>
         <button
           onClick={() => openModal("post")}
-          className="mt-7 p-4 block m-auto border uppercase font-bold rounded-md text-2xl"
+          className="mt-7 p-4 block m-auto border uppercase font-bold rounded-md text-2xl hover:bg-white hover:text-black text-fluid-l"
         >
           Add Account
         </button>
-      </section>
+      </main>
     </>
   );
 }

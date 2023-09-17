@@ -1,11 +1,9 @@
 "use client";
 
-import DnaLoading from "@/app/components/dna-loading";
-import WrapperForm from "@/app/components/wrapper-form";
+import DnaLoading from "../components/dna-loading";
 import { signIn } from "next-auth/react";
 import { useRouter } from "next/navigation";
 import { FormEvent, useRef, useState } from "react";
-import Footer from "../components/footer";
 
 function ErrorDialog() {
   return (
@@ -42,7 +40,7 @@ export default function Sigin() {
   }
 
   return (
-    <WrapperForm>
+    <>
       {error && <ErrorDialog />}
       <form
         onSubmit={submit}
@@ -76,7 +74,6 @@ export default function Sigin() {
           )}
         </div>
       </form>
-      <Footer pathname="/signin" />
-    </WrapperForm>
+    </>
   );
 }

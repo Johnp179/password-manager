@@ -1,11 +1,10 @@
 import { getServerSession } from "next-auth";
 import { authOptions } from "@/lib/auth-options";
 import { redirect } from "next/navigation";
-import Vault from "./components/vault";
-import Nav from "./components/nav";
 import { prisma } from "@/lib/db-connect";
 import { algorithm, key, iv } from "@/lib/encryption";
 import { createDecipheriv } from "crypto";
+import Container from "./components/container";
 
 export default async function Page() {
   const session = await getServerSession(authOptions);
@@ -30,9 +29,12 @@ export default async function Page() {
   });
 
   return (
-    <main className="min-h-screen text-fluid-m">
-      <Nav session={session} />
-      <Vault userId={session.user.id!} accounts={accounts} />
-    </main>
+    <div className="min-h-screen">
+      <Container
+        session={session}
+        userId={session.user.id!}
+        accounts={accounts}
+      />
+    </div>
   );
 }
